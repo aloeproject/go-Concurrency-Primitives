@@ -1,0 +1,4 @@
+Cond 有三点特性是 Channel 无法替代的：
+1.Cond 和一个 Locker 关联，可以利用这个 Locker 对相关的依赖条件更改提供保护。
+2.Cond 可以同时支持 Signal 和 Broadcast 方法，而 Channel 只能同时支持其中一种。
+3.Cond 的 Broadcast 方法可以被重复调用。等待条件再次变成不满足的状态后，我们又可以调用 Broadcast 再次唤醒等待的 goroutine。这也是 Channel 不能支持的，Channel 被 close 掉了之后不支持再 open。
