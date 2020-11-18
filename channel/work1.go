@@ -18,25 +18,25 @@ var ch4 chan struct{}
 
 func work1() {
 	<-ch1
-	fmt.Print(1)
+	fmt.Println(1)
 	ch2 <- struct{}{}
 }
 
 func work2() {
 	<-ch2
-	fmt.Print(2)
+	fmt.Println(2)
 	ch3 <- struct{}{}
 }
 
 func work3() {
 	<-ch3
-	fmt.Print(3)
+	fmt.Println(3)
 	ch4 <- struct{}{}
 }
 
 func work4() {
 	<-ch4
-	fmt.Print(4)
+	fmt.Println(4)
 }
 
 func handle() {
@@ -54,7 +54,6 @@ func handle() {
 			go work4()
 			//fmt.Println(3)
 			ch1 <- struct{}{}
-			fmt.Println()
 			//fmt.Println(2)
 		}
 	}
