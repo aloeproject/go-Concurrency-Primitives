@@ -29,3 +29,7 @@ func Test_childCancelCtx(t *testing.T) {
 func Test_childCancelCtx2(t *testing.T) {
 	childCancelCtx2()
 }
+
+func Test_withValueTransfer(t *testing.T) {
+	withValueTransfer()
+}

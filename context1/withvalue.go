@@ -157,3 +157,13 @@ func childCancelCtx2() {
 	cancel2()
 	time.Sleep(1 * time.Second)
 }
+
+func withValueTransfer() {
+	ctx := context.Background()
+	ctx1 := context.WithValue(ctx, "k1", "v1")
+	fmt.Println(ctx1.Value("k1"))
+	ctx2 := context.WithValue(ctx1, "k1", "v2")
+	//ctx1 不会受影响，值还是 v1
+	//ctx2 后面做修改，值改为v2
+	fmt.Println(ctx1.Value("k1"), ctx2.Value("k1"))
+}
